@@ -1,2 +1,2 @@
 # anthonyquest
-Initial commit
+Exploring Ruby, one Anthony at a time.
