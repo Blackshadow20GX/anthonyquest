@@ -1,6 +1,6 @@
 class Event
 	#instance variables
-	attr_accessor :id
+	attr_reader :id
 	attr_accessor :text
 	attr_accessor :options
 	
