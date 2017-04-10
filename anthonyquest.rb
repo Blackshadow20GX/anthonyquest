@@ -1,3 +1,4 @@
+require_relative 'modules/stats'
 class Event
 	#instance variables
 	attr_reader :id
@@ -40,6 +41,9 @@ end
 #Got a valid input. Yay!
 if option[0] == "y"[0]
 	puts "You're Anthony! Congrats!"
+	anthony = new Character()
+	anthony.lvl = 99
+	anthony.levelup()
 else
 	puts "You're not Anthony! Git!"
 end
