@@ -1,2 +1,5 @@
-Welcome to Anthony Quest!
+id=testevent
+option-y=testevent1
+option-n=testevent2
+text=Welcome to Anthony Quest!
 Are you Anthony?

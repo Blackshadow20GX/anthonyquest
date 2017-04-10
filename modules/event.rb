@@ -22,13 +22,39 @@ class Event
 	end
 
 	def processText()
-		#id,options,text
+		#Check file existence, then open it
 		pathway = File.join(Dir.pwd, "/events/#{@id}.txt")
 		if File.file?(pathway)
 			@text = File.open(pathway, 'r').readlines
+			lines = File.read(pathway)
 		else
-			@text = "File not found: #{pathway}"
+			puts "File not found: #{pathway}"
+			exit
 		end
+
+		#process file
+		#check id for validation
+		fileid="none"
+		lines.each_line { |line|
+			if line=~ /id=/ then
+				temp = line
+				temp.slice! "id="
+				fileid = temp.chomp
+			end
+		}
+		#Terminate if faulty ID, otherwise continue
+		if fileid != @id
+			puts "File ID mismatch: Expected #{@id}; Actual #{fileid}" 
+			exit
+		else
+			puts "File ID matched. Continuing processing..."
+		end
+
+		#check options, place appropriately
+
+		#add quest text
+		@text = text
+		puts "Assigned text successfully. Processing complete!"
 	end
 end
 
