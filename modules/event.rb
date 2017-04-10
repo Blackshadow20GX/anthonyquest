@@ -14,16 +14,26 @@ class Event
 	
 	def valid?(option)
 	options.each do |item|
-		if item.ord == option.ord
+		if item[0] == option[0]
 			return true
 		end
 	end
 	return false
 	end
+
+	def processText()
+		#id,options,text
+		pathway = File.join(Dir.pwd, "/events/#{@id}.txt")
+		if File.file?(pathway)
+			@text = File.open(pathway, 'r').readlines
+		else
+			@text = "File not found: #{pathway}"
+		end
+	end
 end
 
-start = Event.new("Q001")
-start.text = "Welcome to Anthony Quest! Are you Anthony?"
+start = Event.new("testevent")
+start.text = start.processText()
 start.options = ["y", "n"]
 puts start.text
 compare = false
@@ -41,7 +51,7 @@ end
 #Got a valid input. Yay!
 if option[0] == "y"[0]
 	puts "You're Anthony! Congrats!"
-	anthony = new Character()
+	anthony = Character.new()
 	anthony.lvl = 99
 	anthony.levelup()
 else

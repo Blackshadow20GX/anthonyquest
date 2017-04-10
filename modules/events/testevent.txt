@@ -1,5 +1,2 @@
-id=testevent
-option=a-testevent2
-option=b-testevent3
-text=This is a test event.
-What will you do?
+Welcome to Anthony Quest!
+Are you Anthony?
